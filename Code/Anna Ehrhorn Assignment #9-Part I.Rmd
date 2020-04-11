@@ -14,8 +14,8 @@ output: html_notebook
 ***
 ### Question 1
 
-The creation of the graph to compare the PTSD scores of women who suffered
-childhood sexual abuse to those who did not suffer childhood secual abuse.
+The creation of a barplot graph to compare the PTSD scores of women who suffered
+childhood sexual abuse to those who did not suffer childhood sexual abuse.
 
 ```{r include=FALSE}
 library(here)
@@ -43,6 +43,10 @@ ggplot(data = abuse.data) +
 
 ***
 ### Question 2
+
+The creation of a barplot graph to compare the CPA scores of women who suffered
+childhood sexual abuse to those who did not suffer childhood sexual abuse.
+
 ```{r}
 ggplot(data = abuse.data) + 
   geom_boxplot(mapping = aes(x = csa, y = ptsd)) +
@@ -57,3 +61,25 @@ ggplot(data = abuse.data) +
 
 ***
 ### Question 3
+
+This scatterplot graph relates the PTSD scores to childhood physical abuse
+scores by women who suffered from childhood secual to those who did not suffer
+childhood sexual abuse. 
+
+```{r}
+ggplot(data = abuse.data) +
+  geom_point(mapping = aes(x = cpa, y = ptsd, color = csa)) +
+  labs(x = "Childhood Physical Abuse Scale 
+       (standardized scale)",
+       y = "Post-traumatic Stress Disorder (PTSD) Score 
+       (standardized scale)",
+       title = "The Childhood Physical Abuse Score by PTSD Score for Women ",
+       subtitle = "who did and did not experience Childhood Sexual Abuse",
+       caption = "Higher scores indicate higher severity of Abuse and/or PTSD",
+       color = "Reported Childhood Sexual Abuse") +
+  theme(legend.position = "bottom") +
+  scale_fill_discrete(labels = c('Abused','Not Abused')) + 
+  stat_smooth(method = "lm", se = FALSE, mapping = aes(x = cpa, y = ptsd, 
+                                                       color = csa))
+```
+
