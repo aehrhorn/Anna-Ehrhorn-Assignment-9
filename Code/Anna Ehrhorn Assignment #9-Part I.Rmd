@@ -32,7 +32,8 @@ abuse.data$csa
 ```{r}
 ggplot(data = abuse.data) + 
   geom_boxplot(mapping = aes(x = csa, y = ptsd)) +
-  labs(x = "Reported Childhood Sexual Abuse", y = "Post-traumatic Stress Disorder (PTSD) Scale",
+  labs(x = "Reported Childhood Sexual Abuse", y = "Post-traumatic Stress Disorder (PTSD) Scale 
+       (standardized scale)",
        title = "The PTSD scores of Women",
        subtitle = "who did and did not Experience Childhood Sexual Abuse",
        caption = "Higher scores indicate higher PTSD severity") +
@@ -40,12 +41,18 @@ ggplot(data = abuse.data) +
 ```
 
 
-
-
-
-
 ***
 ### Question 2
+```{r}
+ggplot(data = abuse.data) + 
+  geom_boxplot(mapping = aes(x = csa, y = ptsd)) +
+  labs(x = "Reported Childhood Sexual Abuse", y = "Childhood Physical Abuse Scale 
+       (standardized scale)",
+       title = "The Childhood Physical Abuse scores of Women",
+       subtitle = "who did and did not Experience Childhood Sexual Abuse",
+       caption = "Higher scores indicate more Abuse") +
+  scale_x_discrete(labels = c('Abused','Not Abused'))
+```
 
 
 ***
