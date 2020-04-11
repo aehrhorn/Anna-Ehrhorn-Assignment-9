@@ -6,3 +6,47 @@ version: "1.0"
 output: html_notebook
 ---
 
+*This notebook is applying knowledge of the Grammar of Graphics Lecture.*
+
+
+# Part I
+
+***
+### Question 1
+
+The creation of the graph to compare the PTSD scores of women who suffered
+childhood sexual abuse to those who did not suffer childhood secual abuse.
+
+```{r include=FALSE}
+library(here)
+library(tidyverse)
+
+abuse.data <- read_csv(here("Data", "Sexual Abuse Data.csv"))
+
+# Checking Data
+abuse.data
+
+abuse.data$csa
+```
+
+```{r}
+ggplot(data = abuse.data) + 
+  geom_boxplot(mapping = aes(x = csa, y = ptsd)) +
+  labs(x = "Reported Childhood Sexual Abuse", y = "Post-traumatic Stress Disorder (PTSD) Scale",
+       title = "The PTSD scores of Women",
+       subtitle = "who did and did not Experience Childhood Sexual Abuse",
+       caption = "Higher scores indicate higher PTSD severity") +
+  scale_x_discrete(labels = c('Abused','Not Abused'))
+```
+
+
+
+
+
+
+***
+### Question 2
+
+
+***
+### Question 3
