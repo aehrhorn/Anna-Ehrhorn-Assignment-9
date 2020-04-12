@@ -51,7 +51,7 @@ childhood sexual abuse to those who did not suffer childhood sexual abuse.
 
 ```{r}
 ggplot(data = abuse.data) + 
-  geom_boxplot(mapping = aes(x = csa, y = ptsd)) +
+  geom_boxplot(mapping = aes(x = csa, y = cpa)) +
   labs(x = "Reported Childhood Sexual Abuse", y = "Childhood Physical Abuse Scale 
        (standardized scale)",
        title = "The Childhood Physical Abuse scores of Women",
@@ -80,7 +80,7 @@ ggplot(data = abuse.data) +
        caption = "Higher scores indicate higher severity of Abuse and/or PTSD",
        color = "Reported Childhood Sexual Abuse") +
   theme(legend.position = "bottom") +
-  scale_fill_discrete(labels = c('Abused','Not Abused')) + 
+  scale_color_discrete(labels = c('Abused','Not Abused')) + 
   stat_smooth(method = "lm", se = FALSE, mapping = aes(x = cpa, y = ptsd, 
                                                        color = csa))
 ```
